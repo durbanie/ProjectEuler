@@ -1,9 +1,7 @@
 '''
 
-Problem:
-
-Starting with the number 1 and moving to the right in a clockwise direction a 5 
-by 5 spiral is formed as follows:
+Problem: Starting with the number 1 and moving to the right in a clockwise 
+direction a 5x5 spiral is formed as follows:
 
 21 22 23 24 25
 20  7  8  9 10
@@ -39,6 +37,7 @@ have 13, 17, 21, 25.
 
 This allows us to build a sequence without squaring.
 
+Runtime: 1 ms
 
 '''
 
