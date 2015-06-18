@@ -12,6 +12,7 @@ class Prime(object):
     potential future use.
     '''
     
+    
     def __init__(self):
         '''
         Constructor
