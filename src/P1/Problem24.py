@@ -77,29 +77,32 @@ from math import factorial
 from Common.stopwatch import StopWatch
 
 
-def get_permutation(N, digit_list):
+def get_permutation(N, digits):
     '''
     Returns the nth lexographically ordered permutaition given the list of
     ordered
     '''
     _final = ""
-    while len(digit_list) > 0:
-        _digit, N = get_spot(N, digit_list)
+    while len(digits) > 0:
+        _digit, N = get_spot(N, digits)
         _final = _final + _digit
     return _final
 
-def get_spot(n, digit_list):
-    _N = len(digit_list) - 1
+def get_spot(n, digits):
+    '''
+    Gets the next digit for the nth permutation of the (remaining) digits.
+    '''
+    _N = len(digits) - 1
     _Nfac = factorial(_N)
     _index = n / _Nfac
     _remaining = n % _Nfac
     
-    if (_index >= len(digit_list)):
+    if (_index >= len(digits)):
         print "Index out of range!"
-        digit_list = []
+        digits = []
         return '', 0
     
-    _digit = digit_list.pop(_index)
+    _digit = digits.pop(_index)
     return _digit, _remaining
 
 def main():

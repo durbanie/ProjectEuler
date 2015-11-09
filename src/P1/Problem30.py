@@ -16,12 +16,19 @@ because if there was a seventh digit, even the sum of the 5th power of all
 from Common.stopwatch import StopWatch
 
 def main():
+    '''
+    Main entry point.
+    '''
     StopWatch.start()
-    findPowerSums(5)
+    findPowerSums(5, 354294)
     StopWatch.print_time()
 
-def findPowerSums(p):
-    _max = 354294
+def findPowerSums(p, max_value):
+    '''
+    Finds all numbers which are equal to the sum of the specified power of 
+    their digits.
+    '''
+    _max = max_value
     _sum = 0;
     for i in range(10, _max):
         if testNumber(i, p):
@@ -30,11 +37,17 @@ def findPowerSums(p):
     print "Sum:", _sum
 
 def testNumber(N, p):
+    '''
+    Tests a number to see if it is a "power sum".
+    '''
     _digits = getDigits(N)
     _powerSum = sum([d**p for d in _digits])
     return (_powerSum == N)
 
 def getDigits(N):
+    '''
+    Breaks a number down to a list of it's digits.
+    '''
     _digits = []
     while (N > 0):
         N, _digit = divmod(N, 10)

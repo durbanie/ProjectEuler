@@ -2,7 +2,8 @@
 My stopwatch implementation.
 '''
 
-from datetime import datetime
+#from datetime import datetime
+import time
 
 class StopWatch:
     '''
@@ -15,14 +16,14 @@ class StopWatch:
         '''
         Starts the clock.
         '''
-        cls.__start = datetime.now()
+        cls.__start = time.clock()
         
     @classmethod
     def get_time(cls):
         '''
         Gets the time as a timespan object.
         '''
-        return datetime.now() - cls.__start
+        return time.clock() - cls.__start
     
     @classmethod
     def print_time(cls):
@@ -31,10 +32,11 @@ class StopWatch:
         microseconds if less than 1 ms.
         '''
         _td = cls.get_time()
-        _tdms = _td.days*86400000 + _td.seconds*1000 + \
-            _td.microseconds/1000
-        if (_tdms > 0):
-            print _tdms, "ms"
+        _tdms = _td * 1000
+        if (_tdms > 1000):
+            print round(_tdms) / 1000, "s" 
+        elif (int(_tdms) > 0):
+            print int(round(_tdms)), "ms"
         else:
             cls.print_time_us(_td)
     
@@ -44,13 +46,11 @@ class StopWatch:
         Prints the time in microseconds.
         '''
         if (td):
-            _tdms = td.days*86400000000 + td.seconds*1000000 + \
-                td.microseconds
+            _tdms = td * 1000000
         else:
             _td = cls.get_time()
-            _tdms = _td.days*86400000000 + _td.seconds*1000000 + \
-                _td.microseconds
-        print _tdms, "us"
+            _tdms = _td * 1000000
+        print int(round(_tdms)), "us"
 
 def main():
     print "start"

@@ -29,6 +29,9 @@ from Common.primesieve import sieveOfAtkin
 primes = sieveOfAtkin(9802)
 
 def main():
+    '''
+    Main entry point.
+    '''
     StopWatch.start()
     _list = listDigitCancellingFractions()
     _num, _den = 1, 1
@@ -41,6 +44,9 @@ def main():
 
 
 def listDigitCancellingFractions():
+    '''
+    Lists all fractions which are equal to their digit cancelling values.
+    '''
     _dcvs = []
     for i in range(10, 99):
         for j in range(i+1, 99):
@@ -50,12 +56,19 @@ def listDigitCancellingFractions():
     return _dcvs
     
 def equalFractions(num1, den1, num2, den2):
+    '''
+    Determines if two fractions are equal (to avoid potential rounding errors).
+    '''
     if num2 <= 0 or den2 <= 0: return False
     _frac1 = lowestCommonTerms(num1, den1)
     _frac2 = lowestCommonTerms(num2, den2)
     return _frac1 == _frac2        
 
 def lowestCommonTerms(num, den):
+    '''
+    Given a numerator and denominator, re-expresses it in it's lowest common
+    terms.
+    '''
     _num, _den = num, den
     for i in primes:
         if i > _num: break
@@ -65,6 +78,11 @@ def lowestCommonTerms(num, den):
     return _num, _den
 
 def digitCancellingValue(num, den):
+    '''
+    Finds if there is a "digit cancelling value" and returns the numerator and
+    denominator. If there isn't a digit cancelling possibility, returns 0, 0 or
+    -1, -1.
+    '''
     _num1 = num % 10
     _num10 = num // 10
     _den1 = den % 10

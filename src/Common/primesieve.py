@@ -369,18 +369,18 @@ if __name__=='__main__':
         if not all([a==b for a,b in itertools.izip_longest(f1(num),f2(num))]):
             sys.exit("Error: %s(%s) != %s(%s)"%(f1.func_name,num,f2.func_name,num))
     
-    n=1000000
-    test(sieveOfAtkin,sieveOfEratosthenes,n)
-    test(sieveOfAtkin,ambi_sieve,n)
-    test(sieveOfAtkin,ambi_sieve_plain,n) 
-    test(sieveOfAtkin,sundaram3,n)
-    test(sieveOfAtkin,sieve_wheel_30,n)
-    test(sieveOfAtkin,primesfrom3to,n)
-    test(sieveOfAtkin,primesfrom2to,n)
-    test(sieveOfAtkin,rwh_primes,n)
-    test(sieveOfAtkin,rwh_primes1,n)         
-    test(sieveOfAtkin,rwh_primes2,n)
-    test(sieveOfAtkin,mySieve,n)
+    n=100000000
+#     test(sieveOfAtkin,sieveOfEratosthenes,n)
+#     test(sieveOfAtkin,ambi_sieve,n)
+#     test(sieveOfAtkin,ambi_sieve_plain,n) 
+#     test(sieveOfAtkin,sundaram3,n)
+#     test(sieveOfAtkin,sieve_wheel_30,n)
+#     test(sieveOfAtkin,primesfrom3to,n)
+#     test(sieveOfAtkin,primesfrom2to,n)
+#     test(sieveOfAtkin,rwh_primes,n)
+#     test(sieveOfAtkin,rwh_primes1,n)         
+#     test(sieveOfAtkin,rwh_primes2,n)
+#     test(sieveOfAtkin,mySieve,n)
     
     from stopwatch import StopWatch
     
